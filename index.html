@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhoGhostedMe - Find Ghost Followers</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>WhoGhostedMe</h1>
+      <p class="tagline">Find who doesn't follow you back on Instagram</p>
+    </div>
+
+    <div class="search-section">
+      <input 
+        type="text" 
+        id="usernameInput" 
+        class="username-input" 
+        placeholder="Enter your Instagram username (must be public profile)"
+        autocomplete="off"
+      >
+      <button id="searchBtn" class="search-btn">Check Now</button>
+    </div>
+
+    <div id="status" class="status"></div>
+
+    <div id="progressContainer" class="progress-container" style="display: none;">
+      <div class="progress-label">
+        Fetching followers... <span id="followersProgressText" class="progress-text">0 loaded</span>
+      </div>
+      <div class="progress-bar">
+        <div id="followersProgress" class="progress-fill followers"></div>
+      </div>
+      
+      <div class="progress-label" style="margin-top: 15px;">
+        Fetching following... <span id="followingsProgressText" class="progress-text">0 loaded</span>
+      </div>
+      <div class="progress-bar">
+        <div id="followingsProgress" class="progress-fill followings"></div>
+      </div>
+    </div>
+
+    <div id="resultsSection" class="results-section" style="display: none;">
+      <div class="results-header">
+        <h2 id="resultsTitle"></h2>
+        <div class="results-stats" id="resultsStats"></div>
+      </div>
+      <div id="results" class="results-list"></div>
+      <div class="action-buttons">
+        <button id="copyBtn" class="action-btn copy-btn">Copy to Clipboard</button>
+        <button id="exportCsvBtn" class="action-btn export-btn">Export as CSV</button>
+        <button id="resetBtn" class="action-btn reset-btn">Check Another User</button>
+      </div>
+    </div>
+
+    <div id="emptyState" class="empty-state" style="display: none;">
+      <div class="empty-icon">✨</div>
+      <h3>No Ghost Followers!</h3>
+      <p>Amazing! Everyone you follow also follows you back.</p>
+      <button id="checkAnotherBtn" class="search-btn">Check Another User</button>
+    </div>
+
+    <div id="errorSection" class="error-section" style="display: none;">
+      <div id="errorMessage" class="error-message"></div>
+      <button id="retryBtn" class="search-btn">Try Again</button>
+    </div>
+
+    <div class="info-section">
+      <h3>How it works</h3>
+      <ul>
+        <li>Enter your Instagram username (must be a public profile)</li>
+        <li>We figure out who doesn't follow you back</li>
+        <li>No login required - works with public profiles only</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
